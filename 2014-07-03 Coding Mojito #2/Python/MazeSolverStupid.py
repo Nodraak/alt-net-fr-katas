@@ -1,23 +1,30 @@
 
-from MazeBuilderSimple import MazeBuilder
+from time import sleep
 
+class MazeSolver(object):
 
-maze = MazeBuilder()
+    def __init__(self, MazeBuilder):
+        self.maze = MazeBuilder()
 
-while not maze.am_i_out():
-    maze.draw()
+    def solve(self):
+        self.maze.draw()
+        while not self.maze.am_i_out():
+            self.your_turn()
+            self.maze.draw()
+            sleep(1)
 
-    maze.turn_right()
+    def your_turn(self):
+        maze = self.maze
 
-    if maze.can_i_move():
-        maze.move()
-    else:
         maze.turn_left()
 
-    maze.draw()
+        if maze.can_i_move():
+            maze.move()
+        else:
+            maze.turn_right()
 
-    if maze.can_i_move():
-        maze.move();
-    else:
-        maze.turn_left()
+            if maze.can_i_move():
+                maze.move()
+            else:
+                maze.turn_right()
 

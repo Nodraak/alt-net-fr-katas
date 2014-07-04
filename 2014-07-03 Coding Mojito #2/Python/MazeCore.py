@@ -132,4 +132,3 @@ class Maze(object):
 
         if self.am_i_out():
             print 'Gagné !!'
-            quit()
