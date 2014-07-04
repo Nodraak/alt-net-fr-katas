@@ -1,10 +1,21 @@
-﻿from MazeCore import Maze
+﻿
+from MazeCore import Maze
 
 
 class MazeBuilder(Maze):
 
+    """
+        +-+-+-+
+        |X  | |
+        + +-+ +
+        |     |
+        +-+ +-+
+        |     |
+        +-+-+ +
+    """
+
     def __init__(self):
-        Maze.__init__(self, 4, 4, 0, 0)
+        Maze.__init__(self, 3, 3, 0, 0)
 
         self.add_wall_horiz(0, 0);
         self.add_wall_horiz(1, 0);

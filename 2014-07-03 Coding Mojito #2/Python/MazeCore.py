@@ -53,15 +53,15 @@ class Maze(object):
         self.vWalls = []
 
         # init
-        for j in range(height+1):
+        for j in range(height+2):
             tmp = []
-            for i in range(0, width):
+            for i in range(width+1):
                 tmp.append(False)
             self.hWalls.append(tmp)
 
-        for j in range(height):
+        for j in range(height+1):
             tmp = []
-            for i in range(0, width+1):
+            for i in range(width+2):
                 tmp.append(False)
             self.vWalls.append(tmp)
 
@@ -73,21 +73,21 @@ class Maze(object):
 
     def draw(self):
         # for each line
-        for j in range(0, self.height):
+        for j in range(self.height+1):
             # init
             seps = '+'
             cells = ''
             # for each col
-            for i in range(0, self.width):
+            for i in range(self.width+1):
                 # horiz line of sep
-                if i is not self.width-1:
+                if i is not self.width:
                     seps += self.get_char_or_space(self.hWalls[j][i], '-') + '+'
                 # horiz line of cells (with vert sep)
                 cells += self.get_char_or_space(self.vWalls[j][i], '|')
-                cells += self.get_char_or_space(self.posY == j and self.posX == i, 'M')
+                cells += self.get_char_or_space(self.posY == j and self.posX == i, 'X')
             # print
             print seps
-            if j is not self.height-1:
+            if j is not self.height:
                 print cells
         print ''
 
@@ -102,16 +102,16 @@ class Maze(object):
             return not (self.vWalls[y][x])
 
     def am_i_out(self):
-        return (self.posX < 0) or (self.posX >= self.width) or (self.posY < 0) or (self.posY >= self.height)
+        return (self.posX < 0) or (self.posX > self.width-1) or (self.posY < 0) or (self.posY > self.height-1)
 
     def add_wall_horiz(self, x, y):
-        if (x < 0) or (x >= self.width) or (y < 0) or (y > self.height):
+        if (x < 0) or (x > self.width) or (y < 0) or (y > self.height):
             print 'MAIS T4ES MALADE !!! -> add_wall_horiz()'
         else:
             self.hWalls[y][x] = True;
 
     def add_wall_vert(self, x, y):
-        if (x < 0) or (x >= self.width) or (y < 0) or (y > self.height):
+        if (x < 0) or (x > self.width) or (y < 0) or (y > self.height):
             print 'MAIS T4ES MALADE !!! -> add_wall_vert()'
         else:
             self.vWalls[y][x] = True;
