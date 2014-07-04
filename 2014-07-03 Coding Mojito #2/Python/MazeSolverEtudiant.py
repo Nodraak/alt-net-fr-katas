@@ -1,10 +1,10 @@
 
-from time import sleep
+from MazeCore import MazeSolver
 
-class MazeSolver(object):
+class MazeSolverEtudiant(MazeSolver):
 
     def __init__(self, MazeBuilder):
-        self.maze = MazeBuilder()
+        MazeSolver.__init__(self, MazeBuilder)
 
         self.DIR_UP = 0
         self.DIR_RIGHT = 1
@@ -17,17 +17,6 @@ class MazeSolver(object):
         self.currentPos = (0, 0)
         self.casesDejaVisites = []
         self.casesDejaVisites.append(self.currentPos)
-
-        self.turn = 0
-
-    def solve(self):
-        self.maze.draw()
-        while not self.maze.am_i_out():
-            self.your_turn()
-            self.maze.draw()
-            print self.turn
-            self.turn += 1
-            sleep(0.1)
 
     def your_turn(self):
         maze = self.maze

@@ -10,21 +10,22 @@ Pour le moment :
 
 Exemple d'utilisation (via le terminal, la fleme de faire une gui) :
 
-````shell
+````shell 
 Python 2.7.2 (default, Oct 11 2012, 20:14:37) 
 [GCC 4.2.1 Compatible Apple Clang 4.0 (tags/Apple/clang-418.0.60)] on darwin
 Type "help", "copyright", "credits" or "license" for more information.
 >>> from MazeBuilderSimple import MazeBuilder // on importe le builder
->>> from MazeSolverStupid import MazeSolver // on importe le solver
->>> n=MazeSolver(MazeBuilder) // on initialise le solver avec une map faite par le builder
+>>> from MazeSolverStupid import MazeSolverStupid // on importe le solver
+>>> n=MazeSolverStupid(MazeBuilder) // on initialise le solver avec une map faite par le builder
 >>> n.solve() // on solve
 +-+-+-+
-|  X| | 
+|X  | | 
 + +-+ +
 |     | 
 +-+ +-+
 |     | 
 +-+-+ +
+0
 
 +-+-+-+
 |  X| | 
@@ -33,6 +34,7 @@ Type "help", "copyright", "credits" or "license" for more information.
 +-+ +-+
 |     | 
 +-+-+ +
+0
 
 +-+-+-+
 |  X| | 
@@ -41,6 +43,16 @@ Type "help", "copyright", "credits" or "license" for more information.
 +-+ +-+
 |     | 
 +-+-+ +
+1
+
++-+-+-+
+|  X| | 
++ +-+ +
+|     | 
++-+ +-+
+|     | 
++-+-+ +
+2
 
 +-+-+-+
 |X  | | 
@@ -49,6 +61,7 @@ Type "help", "copyright", "credits" or "license" for more information.
 +-+ +-+
 |     | 
 +-+-+ +
+3
 
 +-+-+-+
 |   | | 
@@ -57,6 +70,7 @@ Type "help", "copyright", "credits" or "license" for more information.
 +-+ +-+
 |     | 
 +-+-+ +
+4
 
 +-+-+-+
 |   | | 
@@ -65,6 +79,7 @@ Type "help", "copyright", "credits" or "license" for more information.
 +-+ +-+
 |     | 
 +-+-+ +
+5
 
 +-+-+-+
 |   | | 
@@ -73,6 +88,7 @@ Type "help", "copyright", "credits" or "license" for more information.
 +-+ +-+
 |     | 
 +-+-+ +
+6
 
 +-+-+-+
 |   |X| 
@@ -81,6 +97,7 @@ Type "help", "copyright", "credits" or "license" for more information.
 +-+ +-+
 |     | 
 +-+-+ +
+7
 
 +-+-+-+
 |   |X| 
@@ -89,6 +106,7 @@ Type "help", "copyright", "credits" or "license" for more information.
 +-+ +-+
 |     | 
 +-+-+ +
+8
 
 +-+-+-+
 |   |X| 
@@ -97,6 +115,7 @@ Type "help", "copyright", "credits" or "license" for more information.
 +-+ +-+
 |     | 
 +-+-+ +
+9
 
 +-+-+-+
 |   | | 
@@ -105,6 +124,7 @@ Type "help", "copyright", "credits" or "license" for more information.
 +-+ +-+
 |     | 
 +-+-+ +
+10
 
 +-+-+-+
 |   | | 
@@ -113,6 +133,7 @@ Type "help", "copyright", "credits" or "license" for more information.
 +-+ +-+
 |     | 
 +-+-+ +
+11
 
 +-+-+-+
 |   | | 
@@ -121,6 +142,7 @@ Type "help", "copyright", "credits" or "license" for more information.
 +-+ +-+
 |     | 
 +-+-+ +
+12
 
 +-+-+-+
 |   | | 
@@ -129,6 +151,7 @@ Type "help", "copyright", "credits" or "license" for more information.
 +-+ +-+
 |  X  | 
 +-+-+ +
+13
 
 +-+-+-+
 |   | | 
@@ -137,6 +160,7 @@ Type "help", "copyright", "credits" or "license" for more information.
 +-+ +-+
 |    X| 
 +-+-+ +
+14
 
 +-+-+-+
 |   | | 
@@ -145,7 +169,16 @@ Type "help", "copyright", "credits" or "license" for more information.
 +-+ +-+
 |    X| 
 +-+-+ +
+15
 
 Gagné !!
++-+-+-+
+|   | | 
++ +-+ +
+|     | 
++-+ +-+
+|     | 
++-+-+ +
+16
 ````
 

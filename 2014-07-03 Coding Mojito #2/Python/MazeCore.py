@@ -1,4 +1,5 @@
 ﻿
+from time import sleep
 
 class Maze(object):
     """
@@ -71,7 +72,7 @@ class Maze(object):
         else:
             return ' '
 
-    def draw(self):
+    def draw(self, turn):
         # for each line
         for j in range(self.height+1):
             # init
@@ -89,6 +90,7 @@ class Maze(object):
             print seps
             if j is not self.height:
                 print cells
+        print turn
         print ''
 
     def can_i_move(self):
@@ -132,3 +134,22 @@ class Maze(object):
 
         if self.am_i_out():
             print 'Gagné !!'
+
+
+class MazeSolver(object):
+
+    def __init__(self, MazeBuilder):
+        self.maze = MazeBuilder()
+        self.turn = 0
+
+    def solve(self):
+        self.maze.draw(self.turn)
+        while not self.maze.am_i_out():
+            self.your_turn()
+            self.maze.draw(self.turn)
+
+            self.turn += 1
+            sleep(0.1)
+
+    def your_turn(self):
+        print 'Implement this function (crete your class inheriting from class MazeSolver)'
